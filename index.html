@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Actividad 2 - Formulario de Contacto</title>
+	<style>
+    	/* Centrar y estilizar el formulario */
+    	body {
+        	font-family: system-ui, sans-serif;
+        	background: #f3f4f6;
+        	display: flex;
+        	justify-content: center;
+        	padding: 40px 20px;
+    	}
+    	form {
+        	background: white;
+        	margin: 0 auto;
+        	width: 400px;
+        	padding: 1.5em;
+        	border: 1px solid #ccc;
+        	border-radius: 1em;
+        	box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    	}
+    	h2 { color: #1E3A5F; text-align: center; }
+    	ul { list-style: none; padding: 0; margin: 0; }
+    	li { margin-bottom: 16px; }
+    	label {
+        	display: block;
+        	font-weight: bold;
+        	margin-bottom: 4px;
+        	color: #374151;
+    	}
+    	input, textarea {
+        	width: 100%;
+        	padding: 8px 12px;
+        	border: 1px solid #d1d5db;
+        	border-radius: 6px;
+        	font-size: 14px;
+        	box-sizing: border-box;
+    	}
+    	input:focus, textarea:focus {
+        	outline: none;
+        	border-color: #3B82F6;
+        	box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+    	}
+    	textarea { height: 100px; resize: vertical; }
+    	.button button {
+        	width: 100%;
+        	padding: 10px;
+        	background: #1E3A5F;
+        	color: white;
+        	border: none;
+        	border-radius: 6px;
+    	    font-size: 16px;
+        	cursor: pointer;
+    	}
+    	.button button:hover { background: #2563EB; }
+	</style>
+</head>
+<body>
+ 
+	<!--
+  	action → URL que recibe los datos (aquí es ficticia)
+      method="post" → los datos van en el cuerpo de la petición HTTP
+	-->
+	<form action="/my-handling-form-page" method="post">
+    	<h2>Formulario de Contacto</h2>
+    	<ul>
+ 
+        	<!-- CAMPO: Nombre -->
+        	<li>
+            	<label for="name">Nombre:</label>
+            	<!--
+                  type="text"  → campo de texto de una línea
+                  id="name"	→ debe coincidir con el "for" del label
+                  name="user_name" → nombre del dato que se envía al servidor
+            	-->
+ 	           <input type="text" id="name" name="user_name"
+                   	placeholder="Tu nombre completo">
+        	</li>
+ 
+        	<!-- CAMPO: Correo electrónico -->
+        	<li>
+            	<label for="mail">Correo electrónico:</label>
+            	<!--
+                  type="email" → valida automáticamente el formato email
+              	El navegador muestra error si no tiene @ y dominio
+            	-->
+            	<input type="email" id="mail" name="user_email"
+  	                 placeholder="tucorreo@ejemplo.com">
+        	</li>
+ 
+        	<!-- CAMPO: Mensaje (varias líneas) -->
+        	<li>
+            	<label for="msg">Mensaje:</label>
+            	<!--
+                  <textarea> → campo de texto multilínea
+              	El usuario puede agrandar el cuadro (resize: vertical en CSS)
+            	-->
+            	<textarea id="msg" name="user_message"
+                      	placeholder="Escribe tu mensaje aquí..."></textarea>
+ 	       </li>
+ 
+        	<!-- BOTÓN: Enviar -->
+        	<li class="button">
+            	<!--
+                  type="submit" → envía los datos del formulario a la URL del action
+              	Es el tipo por defecto si no se especifica
+            	-->
+            	<button type="submit">Envíe su mensaje</button>
+        	</li>
+ 
+    	</ul>
+	</form>
+ 
+</body>
+</html>
